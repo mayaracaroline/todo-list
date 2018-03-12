@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Hello Word </title>
+	<meta charset="utf-8">
+	<title> Todo List </title>
 </head>
 <body>
-	<p> Olá!</p>
+	<header>
+		<h1>My Todo List</h1>
+		<form id="form-add-item" action="">
+			<input type="text" name="input-add-item" id="input-add-item"  placeholder="Your text here" autofocus>
+			<input type="submit" id="button-add-item" value="+" onclick="addItem()"> 
+			<!--<button name="btn"onclick="addItem()"> +</button>-->	
+		</form>
+	</header>
+	<main>
+		<ul id="container">
+			<li data-item="1">
+				<input type="checkbox" name="checkbox" id="first-item">
+				<label for="first-item" name="first-item">Meu primeiro item</label>
+		    </li>
+		</ul>	
+	</main>
+	<footer>
+		
+	</footer>	
 	<script type="text/javascript" src="/static/script.js"></script>
 </body>
 </html>
