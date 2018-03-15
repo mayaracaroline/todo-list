@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8"/>
-	<title>Todo List</title>
+    <meta charset="utf-8"/>
+    <title>Todo List</title>
 </head>
 <body>
-	<header>
-		<legend>
-			<h1>My To-do List</h1>
-		</legend>
-		<form id="form-add-item" action="">
-		 <fieldset>
-		 	<input 
-				type="text"
-				name="input-add-item" 
-				id="input-add-item"  
-				placeholder="Your text here" 
-				Insert your task
-				autofocus
-			/>
-			<input type="submit" id="button-add-item" value="+"/>
-		 </fieldset> 
-		</form>
-	</header>
-	<main>
-		<ul id="container">
-			<li data-item="1">
-				<label> 
-					<input type="checkbox" name="checkbox" id="first-item"/>
-					Meu primeiro item
-				</label>
-		    </li>
-		</ul>	
-	</main>	
-	<script type="text/javascript" src="/static/script.js"></script>
+  <header>
+    <legend>
+      <h1>My To-do List</h1>
+    </legend>
+    <form id="form-add-item" action="">
+      <fieldset>
+        <input 
+          type="text"
+          name="input-add-item" 
+          id="input-add-item"  
+          placeholder="Your text here" 
+          autofocus
+        />
+        <input type="submit" id="button-add-item" value="+"/>
+      </fieldset> 
+    </form>
+  </header>
+  <main>
+    <ul id="container">
+      <li data-item="1">
+        <label> 
+          <input type="checkbox" name="checkbox" id="first-item"/>
+          Meu primeiro item
+        </label>
+      </li>
+    </ul>   
+  </main> 
+  <script type="text/javascript" src="/static/script.js"></script>
 </body>
 </html>
