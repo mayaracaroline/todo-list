@@ -1,37 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Todo List</title>
-</head>
-<body>
-  <header>
-    <legend>
-      <h1>My To-do List</h1>
-    </legend>
-    <form id="form-add-item" action="">
-      <fieldset>
-        <input 
-          type="text"
-          name="input-add-item" 
-          id="input-add-item"  
-          placeholder="Your text here" 
-          autofocus
-        />
-        <input type="submit" id="button-add-item" value="+"/>
-      </fieldset> 
-    </form>
-  </header>
-  <main>
-    <ul id="container">
-      <li data-item="1">
-        <label> 
-          <input type="checkbox" name="checkbox" id="first-item"/>
-          Meu primeiro item
-        </label>
-      </li>
-    </ul>   
-  </main> 
-  <script type="text/javascript" src="/static/script.js"></script>
-</body>
+  <head>
+      <meta charset="utf-8"/>
+      <title>Todo List</title>
+      <link rel="stylesheet" type="text/css" href="static/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="toolbar">
+        <span class="items-left">1 item left</span>
+        <span class="item-title">Todo list</span>
+        <span class="item-list">=</span>
+        <span class="menu"></span>
+      </div>
+     <form id="form-add-item" action="">
+        <fieldset>
+         <!-- <legend>Todo List</legend> -->
+          <input 
+            type="text"
+            name="input-add-item" 
+            id="input-add-item"  
+            placeholder="Your text here" 
+            autofocus
+          />
+          <input type="submit" id="button-add-item" value="+"/>
+        </fieldset> 
+      </form> 
+    </header>
+    <main>
+      <ul id="ul-container">
+        <li data-item="1">
+          <label class="container"> 
+            <input type="checkbox" name="checkbox" id="first-item"/>
+            <span class="checkmark"></span>
+            Meu primeiro item
+          </label> <br>
+        </li>
+        <li>  
+          <label class="container">
+              <input type="checkbox" name="checkbox"/>
+              <span class="checkmark"></span>
+            Meu primeiro item
+          </label><br>
+        </li>
+        <li>
+          <label class="container">
+              <input type="checkbox" name="checkbox"/>
+              <span class="checkmark"></span>
+            Meu primeiro item
+          </label><br>
+        </li>
+        <li>
+          <label class="container">
+              <input type="checkbox" name="checkbox"/>
+              <span class="checkmark"></span>
+            Meu primeiro item
+          </label><br>            
+      </li>  
+      </ul> 
+      <button name="btn-remove-item" id="btn-remove-item">Excluir</button>
+    </main>
+    <script type="text/javascript" src="/static/script.js"></script>
+  </body>
 </html>
