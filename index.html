@@ -1,49 +1,69 @@
-<!DOCTYPE html>
-<html>
-  <head>
-      <meta charset="utf-8"/>
-      <title>Todo List</title>
-      <link rel="stylesheet" type="text/css" href="static/style.css">
-  </head>
-  <body>
-    <header>
-      <div class="toolbar">
-        <span class="items-left">1 item left</span>
-        <span class="item-title">Todo List</span>
-        <span class="item-list"></span>
-        <span class="menu"></span>
-      </div>
-      <div class="navbar">
-        <ul>
-          <li>All</li>
-          <li>Active</li>
-          <li>Completed</li>
-        </ul>
-      </div>
-     <form id="form-add-item" action="" class="form">
-        <fieldset>
-        <!--  <legend>Todo List</legend> -->
-          <input 
-            type="text"
-            name="input-add-item" 
-            id="input-add-item"  
-            placeholder="Your text here" 
-            autofocus
-          />
-          <input type="submit" id="button-add-item" value="+"/>
-        </fieldset> 
-      </form> 
-    </header>
-    <main>
-      <ul id="ul-container">
-        <li>
-          <label class="container"> 
-            <input type="checkbox" name="checkbox" id="first-item"/><span class="checkmark"></span><span class="checked-item">Meu primeiro item</span>
-          </label>
-        </li> 
-      </ul> 
-      <button name="btn-remove-item" id="btn-remove-item">Excluir</button>
-    </main>
-    <script type="text/javascript" src="/static/script.js"></script>
-  </body>
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Todo List</title>
+  <meta name="description" content="A todo list exercise">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+
+</head> 
+<body>
+  <header>
+    <div class="toolbar">
+      <span class="items-left">1 item left</span>
+      <span class="item-title">Todo List</span>
+      <span class="item-list"></span>
+      <span class="menu"></span>
+    </div>
+    <div class="navbar">
+      <ul>
+        <li>All</li>
+        <li>Active</li>
+        <li>Completed</li>
+      </ul>
+    </div>
+    <form id="form-add-item" action="" class="form">
+      <fieldset>
+        <input 
+          type="text"
+          name="input-add-item" 
+          id="input-add-item"  
+          placeholder="Your text here" 
+          autofocus
+        />
+        <input type="submit" id="button-add-item" value="+"/>
+      </fieldset> 
+    </form> 
+  </header>
+  <main>
+    <ul id="ul-container" class="list-container">
+      <li>
+        <label class="item-label"> 
+          <input type="checkbox" name="checkbox" id="first-item"/><span class="checked-item">Meu primeiro item</span>
+        </label>
+      </li> 
+       <li>
+        <label class="item-label"> 
+          <input type="checkbox" name="checkbox" id="first-item"/><span class="checked-item">Meu primeiro item</span>
+        </label>
+      </li> 
+       <li>
+        <label class="item-label"> 
+          <input type="checkbox" name="checkbox" id="first-item"/><span class="checked-item">Meu primeiro item</span>
+        </label>
+      </li> 
+       <li>
+        <label class="item-label"> 
+          <input type="checkbox" name="checkbox" id="first-item"/><span class="checked-item">Meu primeiro item</span>
+        </label>
+      </li> 
+    </ul> 
+    <button name="btn-remove-item" id="btn-remove-item">Excluir</button>
+  </main>
+  <button>Teste</button>
+  <script type="text/javascript" src="/static/script.js"></script>
+</body>
 </html>

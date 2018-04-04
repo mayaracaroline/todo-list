@@ -1,4 +1,5 @@
 body{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
 
 }
 
@@ -8,24 +9,27 @@ ul{
 fieldset{
   border: 0px; 
 }
+
 header{
   background-color: #6A5ACD;
   color: #FFF;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 .toolbar{
   padding: 10px;  
 }
+
 .items-left{
   font-size: 40px;
   margin-left:5%;
 }
+
 .item-title{
   font-size: 40px;
   text-align: center;
   margin-left:20%; 
 }
+
 .item-list{
   font-size: 40px;
   margin-left: 30%;
@@ -35,49 +39,56 @@ header{
   margin-left: 30%;
 }
 
-.container{
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  position: relative;
-  font-size: 45px;
+.item-label{
+/*  position: relative;*/
+  font-size: 16px;
 }
 
-.checkmark {
-  position: absolute;
-  margin-top: 5px;
-  margin-left:-43px;
-  height: 35px;
-  width: 35px;
+.item-label:before {
+/*  position: absolute;*/
+/*  margin-top: 5px;
+  margin-left:-43px;*/
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
   background-color: #FFF;
   border: 2px solid #C71585;
   border-radius: 6px;
+  position: relative;
+  top: 5px;
+}
+
+.list-container li {
+  margin-bottom: 30px;
+}
+
+.item-label input {
+  display: none;
 }
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.item-label:hover input ~ .checkmark {
    /* background-color: #ccc;*/
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.item-label input:checked ~ .checkmark {
   background-color: #FFF;
   border: 4px solid #00FFFF; 
   font-size: 20px;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: relative;
-  display: none;
-}
+
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after{
+.item-label input:checked ~ .checkmark:after{
     display: block;
 }
 
 
 /* Style the checkmark/indicator */
-.container .checkmark:after{
+.item-label .checkmark:after{
   margin-left:15px;
   margin-top: 0px;
   width: 14px;
@@ -91,8 +102,10 @@ header{
   transform:rotate(45deg);
 }
 
-.container input:checked ~ .checked-item{
+.item-label input:checked ~ .checked-item{
   text-decoration:line-through;
+  font-style: italic;
+  color: #696969;
 }
 #btn-remove-item {
     background-color: #6A5ACD;
