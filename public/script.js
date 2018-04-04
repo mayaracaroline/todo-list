@@ -17,33 +17,37 @@
   	var label = document.createElement('label');
   	var checkbox = document.createElement('input');
   	var li = document.createElement('li');
+    
   	
   	// Atribuições:
   	checkbox.setAttribute('id','checkbox-add-item-' + (numberItem));
   	checkbox.setAttribute('type','checkbox');
   	label.appendChild(checkbox);
+    label.setAttribute('class','container');
 
     if(document.getElementById('input-add-item').value == ''){
-        alert('Ops! :( \n\n Você esqueceu informar o item.');
+        alert('Ops! :( \nVocê esqueceu informar o item.');
     }
+    var spanCheckmark = document.createElement('span');
+    spanCheckmark.setAttribute('class','checkmark');
+    var spanCheckedItem = document.createElement('span');
+    spanCheckedItem.setAttribute('class','checked-item');
+    
+    spanCheckedItem.
+        appendChild(
+          document.createTextNode(
+            document.getElementById("input-add-item").value
+            )
+          );
+    label.appendChild(spanCheckmark);
+  	label.appendChild(spanCheckedItem);
 
-  	label.appendChild(
-      document.createTextNode(
-        document.getElementById("input-add-item").value
-      )
-    )
                                                               
   	// Append:
   	li.appendChild(label);
   	ul.appendChild(li);
     // Cria uma lista com todos os checkbox dentro da ul
-    var checkboxList = ul.querySelectorAll('input'); 
-
-    // checkboxList.forEach(function(element){
-    //               if(element.checked){
-    //                  element.setAttribute('class','checked-item');
-    //               }
-    //             });      
+    var checkboxList = ul.querySelectorAll('input');  
     
 
     // Verifica se há algum item na lista, caso não exista o botão de remoção é ocultado 
@@ -92,10 +96,6 @@
 
     return itemCheckbox;
   }
-// --------------------------------------------------------------------//
-// Alterar estilo
-  
-
 
 // --------------------------------------------------------------------//
 
@@ -136,4 +136,3 @@
   }
   btnRemover.onclick = removeItem;
 })();
-

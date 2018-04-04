@@ -9,13 +9,20 @@
     <header>
       <div class="toolbar">
         <span class="items-left">1 item left</span>
-        <span class="item-title">Todo list</span>
-        <span class="item-list">=</span>
+        <span class="item-title">Todo List</span>
+        <span class="item-list"></span>
         <span class="menu"></span>
       </div>
-     <form id="form-add-item" action="">
+      <div class="navbar">
+        <ul>
+          <li>All</li>
+          <li>Active</li>
+          <li>Completed</li>
+        </ul>
+      </div>
+     <form id="form-add-item" action="" class="form">
         <fieldset>
-         <!-- <legend>Todo List</legend> -->
+        <!--  <legend>Todo List</legend> -->
           <input 
             type="text"
             name="input-add-item" 
@@ -29,34 +36,11 @@
     </header>
     <main>
       <ul id="ul-container">
-        <li data-item="1">
+        <li>
           <label class="container"> 
-            <input type="checkbox" name="checkbox" id="first-item"/>
-            <span class="checkmark"></span>
-            Meu primeiro item
-          </label> <br>
-        </li>
-        <li>  
-          <label class="container">
-              <input type="checkbox" name="checkbox"/>
-              <span class="checkmark"></span>
-            Meu primeiro item
-          </label><br>
-        </li>
-        <li>
-          <label class="container">
-              <input type="checkbox" name="checkbox"/>
-              <span class="checkmark"></span>
-            Meu primeiro item
-          </label><br>
-        </li>
-        <li>
-          <label class="container">
-              <input type="checkbox" name="checkbox"/>
-              <span class="checkmark"></span>
-            Meu primeiro item
-          </label><br>            
-      </li>  
+            <input type="checkbox" name="checkbox" id="first-item"/><span class="checkmark"></span><span class="checked-item">Meu primeiro item</span>
+          </label>
+        </li> 
       </ul> 
       <button name="btn-remove-item" id="btn-remove-item">Excluir</button>
     </main>
