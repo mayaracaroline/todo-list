@@ -3,9 +3,6 @@ body{
 
 }
 
-ul{
-    list-style-type: none;
-}
 fieldset{
   border: 0px; 
 }
@@ -39,15 +36,20 @@ header{
   margin-left: 30%;
 }
 
+.list-container {
+  list-style: none;
+}
+
+.list-container li {
+  margin-bottom: 30px;
+}
+
 .item-label{
-/*  position: relative;*/
+  position: relative;
   font-size: 16px;
 }
 
 .item-label:before {
-/*  position: absolute;*/
-/*  margin-top: 5px;
-  margin-left:-43px;*/
   content: "";
   display: inline-block;
   height: 20px;
@@ -55,65 +57,41 @@ header{
   margin-right: 10px;
   background-color: #FFF;
   border: 2px solid #C71585;
-  border-radius: 6px;
+  border-radius: 5px;
   position: relative;
   top: 5px;
-}
-
-.list-container li {
-  margin-bottom: 30px;
 }
 
 .item-label input {
   display: none;
 }
-/* On mouse-over, add a grey background color */
-.item-label:hover input ~ .checkmark {
-   /* background-color: #ccc;*/
-}
 
-/* When the checkbox is checked, add a blue background */
-.item-label input:checked ~ .checkmark {
-  background-color: #FFF;
-  border: 4px solid #00FFFF; 
-  font-size: 20px;
-}
-
-
-
-/* Show the checkmark when checked */
-.item-label input:checked ~ .checkmark:after{
-    display: block;
-}
-
-
-/* Style the checkmark/indicator */
-.item-label .checkmark:after{
-  margin-left:15px;
-  margin-top: 0px;
-  width: 14px;
-  height: 28px;
-  font-weight: bold;
-  border:solid 5px #00FFFF;
-  border-radius: 0 0 5px 0;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform:rotate(45deg);
-}
-
-.item-label input:checked ~ .checked-item{
+.item-label input:checked ~ .item-description {
   text-decoration:line-through;
   font-style: italic;
   color: #696969;
 }
+
+.item-label input:checked ~ .item-description:before {
+  content: "";
+  position: absolute;
+  display: inline-block;  
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  height: 6px;
+  width: 9px;
+  transform: rotate(-45deg);
+  left: 7px;
+  top: 2px;
+}
+
 #btn-remove-item {
     background-color: #6A5ACD;
     border: 1px solid #588129;
     color:  white;
     font-size:  20px;
-    font-weight:  bold;
-    padding:  5px 10px;
+    font-weight: bold;
+    padding: 5px 10px;
     border-radius: 3px;
 }
 

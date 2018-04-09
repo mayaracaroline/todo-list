@@ -1,6 +1,6 @@
 (function() {
   // Declarações Globais:
-  var ul = document.getElementById('ul-container'); 
+  var ul = document.getElementById('list-container'); 
   // Ul principal que contém todos itens da lista            
   var form = document.getElementById('form-add-item'); 
   // Input text que recebe valor para inserção na lista 
@@ -23,7 +23,7 @@
   	checkbox.setAttribute('id','checkbox-add-item-' + (numberItem));
   	checkbox.setAttribute('type','checkbox');
   	label.appendChild(checkbox);
-    label.setAttribute('class','container');
+    label.setAttribute('class','item-label');
 
     if(document.getElementById('input-add-item').value == ''){
         alert('Ops! :( \nVocê esqueceu informar o item.');
