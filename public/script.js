@@ -28,19 +28,18 @@
     if(document.getElementById('input-add-item').value == ''){
         alert('Ops! :( \nVocê esqueceu informar o item.');
     }
-    var spanCheckmark = document.createElement('span');
-    spanCheckmark.setAttribute('class','checkmark');
-    var spanCheckedItem = document.createElement('span');
-    spanCheckedItem.setAttribute('class','checked-item');
+    // var spanCheckmark = document.createElement('span');
+    // spanCheckmark.setAttribute('class','checkmark');
+    var spanItemDescription = document.createElement('span');
+    spanItemDescription.setAttribute('class','item-description');
     
-    spanCheckedItem.
+    spanItemDescription.
         appendChild(
           document.createTextNode(
             document.getElementById("input-add-item").value
             )
           );
-    label.appendChild(spanCheckmark);
-  	label.appendChild(spanCheckedItem);
+  	label.appendChild(spanItemDescription);
 
                                                               
   	// Append:
