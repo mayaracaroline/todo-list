@@ -8,35 +8,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" type="text/css" href="static/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 </head> 
 <body>
   <header>
-    <div class="toolbar">
-      <span class="items-left">1 item left</span>
-      <span class="item-title">Todo List</span>
-      <span class="item-list"></span>
-      <span class="menu"></span>
-    </div>
-    <div class="navbar">
-      <ul>
-        <li>All</li>
-        <li>Active</li>
-        <li>Completed</li>
-      </ul>
-    </div>
-    <form id="form-add-item" action="" class="form">
-      <fieldset>
+    <legend><h1>To do List</h1></legend>
+    <form id="form-add-item" action="">
+      <fieldset class="clearfix">
         <input 
           type="text"
           name="input-add-item" 
           id="input-add-item"  
           placeholder="Your text here" 
           autofocus
+          class="input-add-item"
         />
-        <input type="submit" id="button-add-item" value="+"/>
+        <input type="submit" id="button-add-item" value="+" class="button-add-item" />
       </fieldset> 
     </form> 
+    <div class="navbar">
+      <span>All</span><span>Active</span><span>Completed</span>
+    </div>
   </header>
   <main>
     <ul id="list-container" class="list-container">
@@ -46,9 +40,10 @@
         </label>
       </li> 
     </ul> 
-    <button name="btn-remove-item" id="btn-remove-item">Excluir</button>
+         <button name="btn-remove-item" id="btn-remove-item">
+        <i class="material-icons">delete</i>
+     </button>
   </main>
-  <button>Teste</button>
   <script type="text/javascript" src="/static/script.js"></script>
 </body>
 </html>

@@ -1,16 +1,21 @@
 (function() {
   // Declarações Globais:
-  var ul = document.getElementById('list-container'); 
-  // Ul principal que contém todos itens da lista            
+  var ul = document.getElementById('list-container');           
   var form = document.getElementById('form-add-item'); 
-  // Input text que recebe valor para inserção na lista 
   var inputAddItem = document.getElementById('input-add-item'); 
-  // Botão para remoção de itens
   var btnRemover = document.getElementById("btn-remove-item");
   // Para identificação de cada checkbox criado
   var numberItem = 1;  
 
   // -------------------------- Functions ---------------------------------------//
+  // Função: validateEmptyInput()
+
+  function validateEmptyInput(inputText){
+    if(document.getElementById(inputText).value == ''){
+      return alert('Ops! :( \nVocê esqueceu informar o item.');
+    }
+  }
+
   // Função: addItem()
   // Descrição: Função que cria e adiciona itens a lista.
   function addItem(){
@@ -26,10 +31,9 @@
     label.setAttribute('class','item-label');
 
     if(document.getElementById('input-add-item').value == ''){
-        alert('Ops! :( \nVocê esqueceu informar o item.');
+      return alert('Ops! :( \nVocê esqueceu informar o item.');
     }
-    // var spanCheckmark = document.createElement('span');
-    // spanCheckmark.setAttribute('class','checkmark');
+
     var spanItemDescription = document.createElement('span');
     spanItemDescription.setAttribute('class','item-description');
     
@@ -40,16 +44,12 @@
             )
           );
   	label.appendChild(spanItemDescription);
-
                                                               
   	// Append:
   	li.appendChild(label);
   	ul.appendChild(li);
-    // Cria uma lista com todos os checkbox dentro da ul
-    var checkboxList = ul.querySelectorAll('input');  
-    
+    var checkboxList = ul.querySelectorAll('input');      
 
-    // Verifica se há algum item na lista, caso não exista o botão de remoção é ocultado 
     if(checkboxList.length != 0)                           
     {
       btnRemover.style.display = "block";  
@@ -79,16 +79,13 @@
    @return {bool} True - Se houver algum checkbox flegado
                   False - Caso não encontre nenhum checkbox flegado*/
   function verificaCheckList(checkList){
-    for(let i = 0; i < checkList.length; i++)
-    {
+    for(let i = 0; i < checkList.length; i++){
       var itemCheckbox;
-      if(checkList[i].checked)
-      {
+      if(checkList[i].checked){
         itemCheckbox = true;
         break;
       }
-      else
-      {
+      else{
         itemCheckbox = false;
       }
     }//for
@@ -103,33 +100,23 @@
      verificando os inputs flegados, caso estejam flegados a 'li' referente aquele
      item é excluída.*/
   function removeItem(){ 
-    // Cria uma lista com todos as "li's" existentes nesta 'ul'
         checkboxList = ul.querySelectorAll('input');
     var liList = ul.querySelectorAll('li');
     // Verifica se há algum checkbox flegado             
-    if(verificaCheckList(checkboxList))                 
-    {
-      if (confirm("Deseja excluir estes itens?")) 
-      {   
-          checkboxList.forEach(function(element,index)  
-          {
-            if(element.checked)
-            {
-              // Remove a 'li' referente ao checkbox clicado.
+    if(verificaCheckList(checkboxList)){
+      if (confirm("Deseja excluir estes itens?")) {   
+          checkboxList.forEach(function(element,index){
+            if(element.checked){
               liList[index].remove();                   
             }
           });
-          // Cria uma lista com todos os checkbox dentro da ul
           checkboxList = ul.querySelectorAll('input');  
-          if(checkboxList.length == 0)                  
-          {
-            // Oculta o botão de remoção caso não haja itens
+          if(checkboxList.length == 0){
             btnRemover.style.display = "none";           
           }
       }    
     }
-    else
-    {
+    else{
       alert("Não há itens selecionados");
     }
   }
