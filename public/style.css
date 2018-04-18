@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Roboto');
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
 
 header {
   background-color: #6A5ACD;
@@ -11,16 +14,9 @@ header h1 {
   font-family: 'Great Vibes', cursive;
   text-align: center;
   padding-top: 5%;
-  text-shadow: #e91e63 0.01em 0.02em 0.05em;
-  margin: 0;
-}
-
-form {
-  margin-bottom: 10px;
-}
-
-fieldset {
-  border: none; 
+  text-shadow: #e91e63 0.01em 0.03em 0.05em;
+  margin: 0 0 10px;
+  font-size: 50px;
 }
 
 button,
@@ -29,21 +25,31 @@ input[type="reset"],
 input[type="submit"]  {
   cursor: pointer; 
   -webkit-appearance: button;
-  *overflow: scroll;
 }
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
+.form-add-item {
+  margin-bottom: 15px;
+}
+
+.form-container {
+  display: flex;
+  justify-content:center;
+}
+
+.form-container fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 .input-add-item {
-  width: 220px;
+  width: 200px;
   height: 25px;
   border: dotted #e91e63 1px;
   border-radius: 4px;
   margin-right: 10px;
+  padding: 5px 10px;
+  font-size: 18px;
 }
 
 .button-add-item {
@@ -55,26 +61,18 @@ input[type="submit"]  {
   color: #FFF;
   font-size: 29px;
   font-weight: bold;
-  position: relative;
-  top: 5px;
-
 }
 
 .navbar span {
   width: 33.33%;
   display: inline-block;
-  font-size: 90%;
+  font-size: 18px;
   text-align: center; 
   border-bottom: solid 3px #640a29;
 }
 
 .navbar span:hover {
   border-bottom: solid 3px  #e91e63;
-}
-
-main {
-  font-family: 'Roboto Slab', serif;
-  position: relative;
 }
 
 .list-container {
@@ -87,7 +85,7 @@ main {
 
 .item-label{
   position: relative;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .item-label:before {
@@ -126,181 +124,99 @@ main {
   top: -5px;
 }
 
-#btn-remove-item {
+.btn-remove-item {
   width: 15%;
   background-color: #e91e63;
   border: 2px dotted #FFF;
   color: white;
-  font-size: 100%;
   font-weight: bold;
   border-radius: 3px;
-  line-height: 1%;
   right: 20px;
-  bottom: 5%;
   position: fixed;
+  bottom: 20%;
 }
 
-/*@media screen and (max-width:320px)  {
-
-  body {
-    width: 312px;
+@media (min-width:769px) {
+  .input-add-item {
+    width: 580px;
   }
-  
-  .navbar {
-    font-size: 18px;
+
+  .btn-remove-item {
+    bottom:20%;
+  }
+}
+
+@media (min-width: 981px) {
+  header h1 {
+    font-size: 70px;
+  }
+
+  .input-add-item {
+    width: 840px;
   }
 
   .navbar span {
-    width: 104px;
+    font-size: 20px;
   }
 
-}*/
-
-
-/*@media screen and (min-width:768px) {
-  
-  body {
-    width: 760px;
-    font-size: 26px;
+  .item-description {
+    font-size: 24px;
   }
+}
+
+@media (min-width: 1281px) {
+  .btn-remove-item {
+    bottom: 300px;
+    right: 180px;
+    width: 90px;
+    height: 35px;
+  }
+}
+
+@media (min-width: 1441px) {
 
   header h1 {
-    font-size: 80px;
-  
-  }
-
-  fieldset {
-    top:70%;
-    left: 50%;
+    font-size:100px;
   }
 
   .input-add-item {
-    width: 600px;
-    height: 40px;
-    border: dashed #e91e63 2px;
-    font-size: 18px;
-  }
-
-  .button-add-item {
-    width: 50px;
+    width: 1250px;
     height: 50px;
-    border: dashed #FFF 2px;
-    margin: -4px 0 0 30px;
-  }
-
-  .item-label {
     font-size: 24px;
-  }
-
-  #btn-remove-item {
-    bottom: 5%;
-    right: 30px;
-  }
-
-  .item-label input:checked ~ .item-description:before {
-    top:0;
-  }
-
-}*/
-
-/*@media screen and (min-width:732px) and (orientation: landscape) {
-  
-  #btn-remove-item {
-
-    position: absolute;
-    margin-top: 10px;
-    bottom: 0;
-    right: 30px;
-  }
-}
-*/
-/*@media screen and (min-width:980px) {
-  body {
-    width: 970px;
-  }
-
-  .input-add-item {
-    width: 760px;
-    height: 40px;
-    border: dashed #e91e63 2px;
-    font-size: 18px;
-  }
-
-  #btn-remove-item {
-    bottom: 10%;
-    right: 30px;
-  }
-    
-}
-
-@media screen and (min-width:1280px) {
-  body{
-    width: 1260px;
+    border: solid #e91e63 2px;
     font-size: 30px;
-  }
-
-  header h1 {
-    padding-top: 3%;
-    font-size: 100px;
-  }
-
-  .input-add-item {
-    width: 965px;
-    height: 55px;
-    border: dashed #e91e63 2px;
-    font-size: 24px;
   }
 
   .button-add-item {
     width: 65px;
     height: 65px;
     border: dashed #FFF 2px;
-    margin: -4px 0 0 40px;
-  }
-
-  .navbar {
     font-size: 40px;
-  }
-
-  fieldset {
-    margin-right: 30%;
+    margin-left: 15px;
   }
 
   .navbar span {
-    width: 420px;
+    font-size: 30px;
   }
 
-  .item-label {
-    font-size: 35px;
-  }
-
-  #btn-remove-item {
-    bottom: 10%;
-    right: 30px;
-  }
-  
   .item-label:before {
     width: 30px;
     height: 30px;
   }
 
-  .item-label input:checked ~ .item-description:before {
-    top:3px;
-    border-left: 5px solid;
-    border-bottom: 6px solid;
-    height: 12px;
-    width: 28px;
+  .item-description {
+    padding-top: 20px;
+    font-size: 30px;
   }
 
-  #btn-remove-item {
-    height: 40px;
+  .btn-remove-item {
     bottom: 10%;
-    right: 30px;
+    width: 130px;
+    height: 50px;
   }
 
-}*/
+  .material-icons { 
+    font-size: 36px;
+  }
+}
 
-
-/*@media only screen and (min-width:1440px) {
-
-}*/
