@@ -14,8 +14,7 @@
     var label = document.createElement('label');
     var checkbox = document.createElement('input');
     var li = document.createElement('li');
-    
-    
+  
     // Atribuições:
     checkbox.setAttribute('id','checkbox-add-item-' + (numberItem));
     checkbox.setAttribute('type','checkbox');
