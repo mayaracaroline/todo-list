@@ -21,7 +21,7 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  cursor: pointer; 
+  cursor: pointer;
   -webkit-appearance: button;
 }
 
@@ -52,7 +52,7 @@ input[type="submit"] {
 
 .button-add-item {
   background-color: #e91e63;
-  border-radius: 100%; 
+  border-radius: 100%;
   border: 2px dotted #FFF ;
   width: 38px;
   height: 38px;
@@ -65,7 +65,7 @@ input[type="submit"] {
   width: 33.33%;
   display: inline-block;
   font-size: 18px;
-  text-align: center; 
+  text-align: center;
   border-bottom: 3px solid #640a29;
 }
 
@@ -112,7 +112,7 @@ input[type="submit"] {
 .item-label input:checked ~ .item-description:before {
   content: "";
   position: absolute;
-  display: inline-block;  
+  display: inline-block;
   border-left: 3px solid;
   border-bottom: 4px solid;
   height: 9px;
@@ -213,7 +213,7 @@ input[type="submit"] {
     height: 50px;
   }
 
-  .material-icons { 
+  .material-icons {
     font-size: 36px;
   }
 }
