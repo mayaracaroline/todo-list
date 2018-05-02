@@ -1,0 +1,18 @@
+{
+  "extends": "airbnb",
+  "globals": {
+    "document": true,
+    "alert": true,
+    "confirm": true
+  },
+  "rules": {
+  "no-alert": 0,
+  "no-restricted-globals": [
+            "error",
+            {
+                "name": "confirm",
+                "message": "Use local parameter instead."
+            }
+          ]
+  }
+}

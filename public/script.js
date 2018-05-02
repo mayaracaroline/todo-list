@@ -1,124 +1,125 @@
-(function() {
+(() => {
   // Declarações Globais:
-  var ul = document.getElementById('ul-container'); 
-  // Ul principal que contém todos itens da lista            
-  var form = document.getElementById('form-add-item'); 
-  // Input text que recebe valor para inserção na lista 
-  var inputAddItem = document.getElementById('input-add-item'); 
-  // Botão para remoção de itens
-  var btnRemover = document.getElementById("btn-remove-item");
+  const ul = document.getElementById('list-container');
+  const form = document.getElementById('form-add-item');
+  const inputAddItem = document.getElementById('input-add-item');
+  const buttonRemove = document.getElementById('btn-remove-item');
   // Para identificação de cada checkbox criado
-  var numberItem = 1;  
+  let numberItem = 1;
 
-  // -------------------------- Functions ---------------------------------------//
-  // Função: addItem()
-  // Descrição: Função que cria e adiciona itens a lista.
-  function addItem(){
-  	var label = document.createElement('label');
-  	var checkbox = document.createElement('input');
-  	var li = document.createElement('li');
-  	
-  	// Atribuições:
-  	checkbox.setAttribute('id','checkbox-add-item-' + (numberItem));
-  	checkbox.setAttribute('type','checkbox');
-  	label.appendChild(checkbox);
+  /**
+   * @description Cria um item.
+   */
+  function createItem(itemText) {
+    const label = document.createElement('label');
+    const checkbox = document.createElement('input');
+    const li = document.createElement('li');
+    const span = document.createElement('span');
 
-  	label.appendChild(
-      document.createTextNode(
-        document.getElementById("input-add-item").value
-      )
-    )
-                                                              
-  	// Append:
-  	li.appendChild(label);
-  	ul.appendChild(li);
-    // Cria uma lista com todos os checkbox dentro da ul
-    var checkboxList = ul.querySelectorAll('input');       
+    // Atribuições:
+    checkbox.setAttribute('id', `checkbox-add-item- ${numberItem}`);
+    checkbox.setAttribute('type', 'checkbox');
+    label.setAttribute('class', 'item-label');
+    span.setAttribute('class', 'item-description');
 
-    // Verifica se há algum item na lista, caso não exista o botão de remoção é ocultado 
-    if(checkboxList.length != 0)                           
-    {
-      btnRemover.style.display = "block";  
-    }
-  	document.getElementById("input-add-item").value ='';   
-  	numberItem++;                                     
-    inputAddItem.focus();                                  
+    // Append:
+    label.appendChild(checkbox);
+    span.appendChild(document.createTextNode(itemText));
+    label.appendChild(span);
+    li.appendChild(label);
+
+    return li;
   }
 
-// --------------------------------------------------------------------//
+  /**
+   * @description Mostra ou esconde o botão de remoção.
+   */
+  function updateRemoveButton() {
+    const checkboxList = ul.querySelectorAll('input');
 
-  // Função: onSubmit()
-  // Descrição: Função que evita o redirect do submit do botão
+    if (checkboxList.length !== 0) {
+      buttonRemove.style.display = 'block';
+    } else {
+      buttonRemove.style.display = 'none';
+    }
+  }
+
+  /**
+   * @description Adiciona itens a lista.
+   *
+   *@param {li}
+   */
+  function addItem(item) {
+    ul.appendChild(item);
+    numberItem += 1;
+  }
+
+  function clearTextInput() {
+    inputAddItem.value = '';
+    inputAddItem.focus();
+  }
+
+  /**
+   * @description Evita o redirect do submit do botão,
+   * verifica se o input está vazio.
+   *
+   * @param {event} - submit.
+   */
+  
   function onSubmit(event) {
     event.preventDefault();
-    addItem();
+
+    if (inputAddItem.value === '') {
+      alert('Ops! :( \nVocê esqueceu informar o item.');
+      return;
+    }
+
+    addItem(createItem(inputAddItem.value));
+    updateRemoveButton();
+    clearTextInput();
   }
 
   form.addEventListener('submit', onSubmit);
 
-// --------------------------------------------------------------------//
+  /**
+   * @description Verifica se há algum checkbox flegado.
+   *
+   * @param {array} checklist - Array de checkbox.
+   * @return {boolean} True - Se houver algum checkbox flegado.
+   */
 
-  /* Função: verificaCheckList()
-   @description Função que recebe uma lista de inputs checkbox e verifica se 
-             há algum flegado
-   @param    checklist - Array de checkbox
-   @return {bool} True - Se houver algum checkbox flegado
-                  False - Caso não encontre nenhum checkbox flegado*/
-  function verificaCheckList(checkList){
-    for(let i = 0; i < checkList.length; i++)
-    {
-      var itemCheckbox;
-      if(checkList[i].checked)
-      {
+  function verifyCheckList(checkList) {
+    let itemCheckbox;
+    for (let i = 0; i < checkList.length; i += 1) {
+      if (checkList[i].checked) {
         itemCheckbox = true;
         break;
-      }
-      else
-      {
+      } else {
         itemCheckbox = false;
       }
-    }//for
+    }
 
     return itemCheckbox;
   }
 
-// --------------------------------------------------------------------//
-
-  // Função: removeItem()
-  /* @description Função que cria uma checkboxList e posteriormente itera por ela
-     verificando os inputs flegados, caso estejam flegados a 'li' referente aquele
-     item é excluída.*/
-  function removeItem(){ 
-    // Cria uma lista com todos as "li's" existentes nesta 'ul'
-        checkboxList = ul.querySelectorAll('input');
-    var liList = ul.querySelectorAll('li');
-    // Verifica se há algum checkbox flegado             
-    if(verificaCheckList(checkboxList))                 
-    {
-      if (confirm("Deseja excluir estes itens?")) 
-      {   
-          checkboxList.forEach(function(element,index)  
-          {
-            if(element.checked)
-            {
-              // Remove a 'li' referente ao checkbox clicado.
-              liList[index].remove();                   
-            }
-          });
-          // Cria uma lista com todos os checkbox dentro da ul
-          checkboxList = ul.querySelectorAll('input');  
-          if(checkboxList.length == 0)                  
-          {
-            // Oculta o botão de remoção caso não haja itens
-            btnRemover.style.display = "none";           
-          }
-      }    
-    }
-    else
-    {
-      alert("Não há itens selecionados");
+  /**
+   * @description Cria uma checkboxList e verifica se há inputs flegados e exclui o item.
+   */
+  function removeItem() {
+    const checkboxList = ul.querySelectorAll('input');
+    const itemList = ul.querySelectorAll('li');
+    // eslint-disable-next-line
+    if (verificaCheckList(checkboxList) && confirm('Deseja excluir estes itens?')) {
+      checkboxList.forEach((element, index) => {
+        if (element.checked) {
+          itemList[index].remove();
+        }
+      });
+      updateRemoveButton();
+    } else {
+      alert('Não há itens selecionados');
     }
   }
-  btnRemover.onclick = removeItem;                        
-})();
 
+  buttonRemove.onclick = removeItem;
+})();
