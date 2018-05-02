@@ -108,7 +108,7 @@
     const checkboxList = ul.querySelectorAll('input');
     const itemList = ul.querySelectorAll('li');
     // eslint-disable-next-line
-    if (verificaCheckList(checkboxList) && confirm('Deseja excluir estes itens?')) {
+    if (verifyCheckList(checkboxList) && confirm('Deseja excluir estes itens?')) {
       checkboxList.forEach((element, index) => {
         if (element.checked) {
           itemList[index].remove();
