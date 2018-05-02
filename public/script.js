@@ -3,7 +3,7 @@
   const ul = document.getElementById('list-container');
   const form = document.getElementById('form-add-item');
   const inputAddItem = document.getElementById('input-add-item');
-  const btnRemover = document.getElementById('btn-remove-item');
+  const buttonRemove = document.getElementById('btn-remove-item');
   // Para identificação de cada checkbox criado
   let numberItem = 1;
 
@@ -38,9 +38,9 @@
     const checkboxList = ul.querySelectorAll('input');
 
     if (checkboxList.length !== 0) {
-      btnRemover.style.display = 'block';
+      buttonRemove.style.display = 'block';
     } else {
-      btnRemover.style.display = 'none';
+      buttonRemove.style.display = 'none';
     }
   }
 
@@ -87,7 +87,7 @@
    * @return {boolean} True - Se houver algum checkbox flegado.
    */
 
-  function verificaCheckList(checkList) {
+  function verifyCheckList(checkList) {
     let itemCheckbox;
     for (let i = 0; i < checkList.length; i += 1) {
       if (checkList[i].checked) {
@@ -120,5 +120,5 @@
     }
   }
 
-  btnRemover.onclick = removeItem;
+  buttonRemove.onclick = removeItem;
 })();
