@@ -1,23 +1,15 @@
 (() => {
-  // Declarações Globais:
-  const ul = document.getElementById('list-container');
-  const form = document.getElementById('form-add-item');
-  const inputAddItem = document.getElementById('input-add-item');
-  const buttonRemove = document.getElementById('btn-remove-item');
-  // Para identificação de cada checkbox criado
-  let numberItem = 1;
-
   /**
    * @description Cria um item.
    */
-  function createItem(itemText) {
+  function createItem(itemText, id) {
     const label = document.createElement('label');
     const checkbox = document.createElement('input');
     const li = document.createElement('li');
     const span = document.createElement('span');
 
     // Atribuições:
-    checkbox.setAttribute('id', `checkbox-add-item- ${numberItem}`);
+    checkbox.setAttribute('id', `checkbox-add-item-${id}`);
     checkbox.setAttribute('type', 'checkbox');
     label.setAttribute('class', 'item-label');
     span.setAttribute('class', 'item-description');
@@ -32,6 +24,15 @@
   }
 
   /**
+   * @description Adiciona itens a lista.
+   *
+   *@param {li}
+   */
+  function addItem(item) {
+    ul.appendChild(item);
+  }
+
+  /**
    * @description Mostra ou esconde o botão de remoção.
    */
   function updateRemoveButton() {
@@ -42,16 +43,6 @@
     } else {
       buttonRemove.style.display = 'none';
     }
-  }
-
-  /**
-   * @description Adiciona itens a lista.
-   *
-   *@param {li}
-   */
-  function addItem(item) {
-    ul.appendChild(item);
-    numberItem += 1;
   }
 
   function clearTextInput() {
@@ -79,8 +70,6 @@
     clearTextInput();
   }
 
-  form.addEventListener('submit', onSubmit);
-
   /**
    * @description Verifica se há algum checkbox flegado.
    *
@@ -88,7 +77,7 @@
    * @return {boolean} True - Se houver algum checkbox flegado.
    */
 
-  function verifyCheckList(checkList) {
+  function verifyCheckList(checkList, options) {
     let itemCheckbox;
     for (let i = 0; i < checkList.length; i += 1) {
       if (checkList[i].checked) {
@@ -121,5 +110,29 @@
     }
   }
 
-  buttonRemove.onclick = removeItem;
+  function getActiveItems(){
+    fetch('/todo', {
+    //method: 'POST'
+    }).then(response => {
+       response.json().then(parsedResponse => {
+        parsedResponse.forEach((element) => {
+          addItem(createItem(element.description,element.item_id));
+        });
+      });
+    }).catch(error => {});
+  }
+
+
+  // Declarações Globais:
+  const ul = document.getElementById('list-container');
+  const form = document.getElementById('form-add-item');
+  const inputAddItem = document.getElementById('input-add-item');
+  const buttonRemove = document.getElementById('btn-remove-item');
+  // Para identificação de cada checkbox criado
+  let numberItem = 1;
+
+  buttonRemove.addEventListener('click', removeItem);
+  form.addEventListener('submit', onSubmit);
+
+  getActiveItems();
 })();

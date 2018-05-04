@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const connection = require('../config/database');
 
-const Task = connection.define('to_do', {
+const Todo = connection.define('to_do', {
   item_id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -12,7 +12,6 @@ const Task = connection.define('to_do', {
   },
   completion_status: {
     type: Sequelize.BOOLEAN,
-
   },
   archieved_status: {
     type: Sequelize.BOOLEAN,
@@ -21,6 +20,6 @@ const Task = connection.define('to_do', {
   freezeTableName: true
 });
 
-Task.sync();
+Todo.sync();
 
-module.exports = Task;
+module.exports = Todo;
