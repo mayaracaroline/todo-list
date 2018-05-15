@@ -3,7 +3,8 @@
   "globals": {
     "document": true,
     "alert": true,
-    "confirm": true
+    "confirm": true,
+    "fetch": true
   },
   "rules": {
   "no-alert": 0,

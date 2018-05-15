@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
-    "lint": "./node_modules/.bin/eslint public/script.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "lint": "./node_modules/.bin/eslint public/script.js server/**/*.js index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/mayaracaroline/todo-list#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mysql2": "^1.5.3",
     "sequelize": "^4.37.6"

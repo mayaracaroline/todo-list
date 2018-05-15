@@ -2,7 +2,7 @@
 <html class="no-js" lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" action="/todo/create">
   <title>Todo List</title>
   <meta name="description" content="A todo list exercise">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
 <body>
   <header>
     <h1>To do List</h1>
-    <form id="form-add-item" class="form-add-item" action="post">
+    <form id="form-add-item" class="form-add-item" method="post">
       <div class="form-container">
         <fieldset>
           <input
@@ -41,17 +41,14 @@
   </header>
   <main>
     <ul id="list-container" class="list-container">
-      <li>
-        <label class="item-label">
-          <input
-            type="checkbox"
-            name="checkbox"
-            id="first-item"
-          />
-          <span class="item-description">Meu primeiro item</span>
-        </label>
-      </li>
     </ul>
+
+    <div id='notification' class='notification'>
+      <button id='close' class="close">x</button>
+      <i class="material-icons">save</i>
+      <p id="text-notification">Dados salvos :)</p>
+    </div>
+
     <button name="btn-remove-item" id="btn-remove-item" class="btn-remove-item">
       <i class="material-icons">delete</i>
     </button>

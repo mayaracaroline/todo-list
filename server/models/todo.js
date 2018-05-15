@@ -17,7 +17,7 @@ const Todo = connection.define('to_do', {
     type: Sequelize.BOOLEAN,
   },
 }, {
-  freezeTableName: true
+  freezeTableName: true,
 });
 
 Todo.sync();
