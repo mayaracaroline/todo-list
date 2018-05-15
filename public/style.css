@@ -122,6 +122,37 @@ input[type="submit"] {
   top: -5px;
 }
 
+.notification {
+  float: right;
+  margin-right: 5px;
+  margin-top: -75px;
+  display: none;
+  width: 160px;
+  height: 25px;
+  padding: 3px;
+  background-color: #FFE4E1;
+  color: #e91e63;
+  border: 1px solid #FFC0CB;
+}
+
+.notification p {
+  display: inline-block;
+  margin: 2px 2px 0px 8px;
+  position: absolute ;
+}
+
+.close {
+  border: none;
+  width: 15px;
+  height: 15px;
+  display: none;
+  justify-content: center;
+  line-height: 16px;
+  float: right;
+  color: #e91e63;
+  background-color: #FFE4E1;
+}
+
 .btn-remove-item {
   width: 15%;
   background-color: #e91e63;
@@ -164,7 +195,7 @@ input[type="submit"] {
 
 @media (min-width: 1281px) {
   .btn-remove-item {
-    bottom: 300px;
+    bottom: 100px;
     right: 180px;
     width: 90px;
     height: 35px;
