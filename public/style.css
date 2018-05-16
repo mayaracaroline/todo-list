@@ -123,9 +123,11 @@ input[type="submit"] {
 }
 
 .notification {
+  position: fixed;
   float: right;
   margin-right: 5px;
-  margin-top: -75px;
+  top:300px;
+  right: 5px;
   display: none;
   width: 160px;
   height: 25px;
